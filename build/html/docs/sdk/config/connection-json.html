@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>connction-json 示例 &mdash; asiainfo-fabric alpha 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/clipboard.min.js"></script>
+        <script type="text/javascript" src="../../../_static/copybutton.js"></script>
+        <script type="text/javascript" src="../../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> asiainfo-fabric
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">介绍</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">ASIAINFO-FABRIC-SDK 介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/introduction.html">ASIAINFO-FABRIC-API 介绍</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">asiainfo-fabric</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>connction-json 示例</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/docs/sdk/config/connection-json.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="connction-json">
+<h1>connction-json 示例<a class="headerlink" href="#connction-json" title="永久链接至标题">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;global-trade-network&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;x-type&quot;</span><span class="p">:</span> <span class="s2">&quot;hlfv1&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The network to be in if you want to stay in the global trade business&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;client&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Org1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;credentialStore&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/tmp/hfc-kvs&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;cryptoStore&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/tmp/hfc-cvs&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;wallet&quot;</span><span class="p">:</span> <span class="s2">&quot;wallet-name&quot;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;channels&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;mychannel&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;orderers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;orderer.example.com&quot;</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;peers&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;peer0.org1.example.com&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;endorsingPeer&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+          <span class="s2">&quot;chaincodeQuery&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+          <span class="s2">&quot;ledgerQuery&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+          <span class="s2">&quot;eventSource&quot;</span><span class="p">:</span> <span class="n">true</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;peer1.org1.example.com&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;endorsingPeer&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+          <span class="s2">&quot;chaincodeQuery&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+          <span class="s2">&quot;ledgerQuery&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+          <span class="s2">&quot;eventSource&quot;</span><span class="p">:</span> <span class="n">true</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;peer0.org2.example.com&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;endorsingPeer&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+          <span class="s2">&quot;chaincodeQuery&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+          <span class="s2">&quot;ledgerQuery&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+          <span class="s2">&quot;eventSource&quot;</span><span class="p">:</span> <span class="n">false</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;chaincodes&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;example02:v1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;marbles:1.0&quot;</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;organizations&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;Org1&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;mspid&quot;</span><span class="p">:</span> <span class="s2">&quot;Org1MSP&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;peers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;peer0.org1.example.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;peer1.org1.example.com&quot;</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;certificateAuthorities&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;ca-org1&quot;</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;adminPrivateKey&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;pem&quot;</span><span class="p">:</span> <span class="s2">&quot;-----BEGIN PRIVATE KEY-----</span><span class="se">\n</span><span class="s2">MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQghnA7rdgbZi/wndusiXjyf0KgE6OKZjQ+5INjwelRAC6hRANCAASb3u+hY+U/FZvhYDN6d08HJ1v56UJUyz/n2NHyJgTg6kC05AaJMeGIinEF0JeJtRDNVQGzoQJQYjnzUTS9FvGh</span><span class="se">\n</span><span class="s2">-----END PRIVATE KEY-----&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;signedCert&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;src/test/fixture/sdkintegration/e2e-2Orgs/v1.3/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem&quot;</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;Org2&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;mspid&quot;</span><span class="p">:</span> <span class="s2">&quot;Org2MSP&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;peers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;peer0.org2.example.com&quot;</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;certificateAuthorities&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;ca-org2&quot;</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;orderers&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;orderer.example.com&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;grpcs://localhost:7050&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;grpcOptions&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;ssl-target-name-override&quot;</span><span class="p">:</span> <span class="s2">&quot;orderer.example.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;grpc-max-send-message-length&quot;</span><span class="p">:</span> <span class="mi">15</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;tlsCACerts&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;pem&quot;</span><span class="p">:</span> <span class="s2">&quot;-----BEGIN CERTIFICATE----- &lt;etc&gt;&quot;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;peers&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;peer0.org1.example.com&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;grpcs://localhost:7051&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;grpcOptions&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;ssl-target-name-override&quot;</span><span class="p">:</span> <span class="s2">&quot;peer0.org1.example.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;grpc.http2.keepalive_time&quot;</span><span class="p">:</span> <span class="mi">15</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;tlsCACerts&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;src/test/fixture/sdkintegration/e2e-2Orgs/v1.3/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/server.crt&quot;</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;peer1.org1.example.com&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;grpcs://localhost:7051&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;grpcOptions&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;ssl-target-name-override&quot;</span><span class="p">:</span> <span class="s2">&quot;peer1.org1.example.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;grpc.http2.keepalive_time&quot;</span><span class="p">:</span> <span class="mi">15</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;tlsCACerts&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;src/test/fixture/sdkintegration/e2e-2Orgs/v1.3/crypto-config/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls/server.crt&quot;</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;peer0.org2.example.com&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;grpcs://localhost:8051&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;grpcOptions&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;ssl-target-name-override&quot;</span><span class="p">:</span> <span class="s2">&quot;peer0.org2.example.com&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;tlsCACerts&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;src/test/fixture/sdkintegration/e2e-2Orgs/v1.3/crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/server.crt&quot;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;certificateAuthorities&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;ca-org1&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://localhost:7054&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;httpOptions&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;verify&quot;</span><span class="p">:</span> <span class="n">true</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;tlsCACerts&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;peerOrganizations/org1.example.com/ca/org1.example.com-cert.pem&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pem&quot;</span><span class="p">:</span> <span class="s2">&quot;-----BEGIN CERTIFICATE----- &lt;etc&gt;&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;registrar&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;enrollId&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;enrollSecret&quot;</span><span class="p">:</span> <span class="s2">&quot;adminpw&quot;</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;caName&quot;</span><span class="p">:</span> <span class="s2">&quot;caNameHere&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;ca-org2&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://localhost:8054&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;httpOptions&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;verify&quot;</span><span class="p">:</span> <span class="n">true</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;tlsCACerts&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;pem&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="s2">&quot;-----BEGIN CERTIFICATE----- &lt;1&gt;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;-----BEGIN CERTIFICATE----- &lt;2&gt;&quot;</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;registrar&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;enrollId&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;enrollSecret&quot;</span><span class="p">:</span> <span class="s2">&quot;adminpw&quot;</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;caName&quot;</span><span class="p">:</span> <span class="s2">&quot;caNameHere&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2021, asiainfo-guoyuan.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

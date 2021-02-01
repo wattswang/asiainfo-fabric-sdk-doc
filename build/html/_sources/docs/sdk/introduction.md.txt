@@ -1,0 +1,12 @@
+# ASIAINFO-FABRIC-SDK 介绍
+
+## 源码
+
+组件在[fabric-sdk-java](https://github.com/hyperledger/fabric-sdk-java.git?_blank) 基础上结合spring进行开发
+
+## 配置文件
+
+- [json](config/connection-json.md?_blank)
+- [yaml](config/connection-yaml.md?_blank)
+
+## 使用

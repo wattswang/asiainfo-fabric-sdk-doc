@@ -1,0 +1,576 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>connction-yaml 示例 &mdash; asiainfo-fabric alpha 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/clipboard.min.js"></script>
+        <script type="text/javascript" src="../../../_static/copybutton.js"></script>
+        <script type="text/javascript" src="../../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> asiainfo-fabric
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">介绍</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">ASIAINFO-FABRIC-SDK 介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/introduction.html">ASIAINFO-FABRIC-API 介绍</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">asiainfo-fabric</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>connction-yaml 示例</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/docs/sdk/config/connection-yaml.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="connction-yaml">
+<h1>connction-yaml 示例<a class="headerlink" href="#connction-yaml" title="永久链接至标题">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright Fujitsu Australia Software Technology, IBM Corp. All Rights Reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1"># The network connection profile provides client applications the information about the target</span>
+<span class="c1"># blockchain network that are necessary for the applications to interact with it. These are all</span>
+<span class="c1"># knowledge that must be acquired from out-of-band sources. This file provides such a source.</span>
+<span class="c1">#</span>
+<span class="n">name</span><span class="p">:</span> <span class="s2">&quot;Network-Config-Test&quot;</span>
+
+<span class="c1">#</span>
+<span class="c1"># Any properties with an &quot;x-&quot; prefix will be treated as application-specific, exactly like how naming</span>
+<span class="c1"># in HTTP headers or swagger properties work. The SDK will simply ignore these fields and leave</span>
+<span class="c1"># them for the applications to process. This is a mechanism for different components of an application</span>
+<span class="c1"># to exchange information that are not part of the standard schema described below. In particular,</span>
+<span class="c1"># the &quot;x-type&quot; property with the &quot;hlfv1&quot; value example below is used by Hyperledger Composer to</span>
+<span class="c1"># determine the type of Fabric networks (v0.6 vs. v1.0) it needs to work with.</span>
+<span class="c1">#</span>
+<span class="n">x</span><span class="o">-</span><span class="nb">type</span><span class="p">:</span> <span class="s2">&quot;hlfv1&quot;</span>
+
+<span class="c1">#</span>
+<span class="c1"># Describe what the target network is/does.</span>
+<span class="c1">#</span>
+<span class="n">description</span><span class="p">:</span> <span class="s2">&quot;The network used in the integration tests&quot;</span>
+
+<span class="c1">#</span>
+<span class="c1"># Schema version of the content. Used by the SDK to apply the corresponding parsing rules.</span>
+<span class="c1">#</span>
+<span class="n">version</span><span class="p">:</span> <span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span>
+
+<span class="c1">#</span>
+<span class="c1"># The client section is SDK-specific. The sample below is for the node.js SDK</span>
+<span class="c1">#</span>
+<span class="n">client</span><span class="p">:</span>
+  <span class="c1"># Which organization does this application instance belong to? The value must be the name of an org</span>
+  <span class="c1"># defined under &quot;organizations&quot;</span>
+  <span class="n">organization</span><span class="p">:</span> <span class="n">Org1</span>
+
+  <span class="c1"># Some SDKs support pluggable KV stores, the properties under &quot;credentialStore&quot;</span>
+  <span class="c1"># are implementation specific</span>
+  <span class="n">credentialStore</span><span class="p">:</span>
+    <span class="c1"># [Optional]. Specific to FileKeyValueStore.js or similar implementations in other SDKs. Can be others</span>
+    <span class="c1"># if using an alternative impl. For instance, CouchDBKeyValueStore.js would require an object</span>
+    <span class="c1"># here for properties like url, db name, etc.</span>
+    <span class="n">path</span><span class="p">:</span> <span class="s2">&quot;/tmp/hfc-kvs&quot;</span>
+
+    <span class="c1"># [Optional]. Specific to the CryptoSuite implementation. Software-based implementations like</span>
+    <span class="c1"># CryptoSuite_ECDSA_AES.js in node SDK requires a key store. PKCS#11 based implementations does</span>
+    <span class="c1"># not.</span>
+    <span class="n">cryptoStore</span><span class="p">:</span>
+      <span class="c1"># Specific to the underlying KeyValueStore that backs the crypto key store.</span>
+      <span class="n">path</span><span class="p">:</span> <span class="s2">&quot;/tmp/hfc-cvs&quot;</span>
+
+    <span class="c1"># [Optional]. Specific to Composer environment</span>
+    <span class="n">wallet</span><span class="p">:</span> <span class="n">wallet</span><span class="o">-</span><span class="n">name</span>
+
+<span class="c1">#</span>
+<span class="c1"># [Optional]. But most apps would have this section so that channel objects can be constructed</span>
+<span class="c1"># based on the content below. If an app is creating channels, then it likely will not need this</span>
+<span class="c1"># section.</span>
+<span class="c1">#</span>
+<span class="n">channels</span><span class="p">:</span>
+  <span class="c1"># name of the channel</span>
+  <span class="n">foo</span><span class="p">:</span>
+    <span class="c1"># Required. list of orderers designated by the application to use for transactions on this</span>
+    <span class="c1"># channel. This list can be a result of access control (&quot;org1&quot; can only access &quot;ordererA&quot;), or</span>
+    <span class="c1"># operational decisions to share loads from applications among the orderers.  The values must</span>
+    <span class="c1"># be &quot;names&quot; of orgs defined under &quot;organizations/peers&quot;</span>
+    <span class="n">orderers</span><span class="p">:</span>
+      <span class="o">-</span> <span class="n">orderer</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+
+    <span class="c1"># Required. list of peers from participating orgs</span>
+    <span class="n">peers</span><span class="p">:</span>
+      <span class="n">peer0</span><span class="o">.</span><span class="n">org1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="p">:</span>
+        <span class="c1"># [Optional]. will this peer be sent transaction proposals for endorsement? The peer must</span>
+        <span class="c1"># have the chaincode installed. The app can also use this property to decide which peers</span>
+        <span class="c1"># to send the chaincode install request. Default: true</span>
+        <span class="n">endorsingPeer</span><span class="p">:</span> <span class="n">true</span>
+
+        <span class="c1"># [Optional]. will this peer be sent query proposals? The peer must have the chaincode</span>
+        <span class="c1"># installed. The app can also use this property to decide which peers to send the</span>
+        <span class="c1"># chaincode install request. Default: true</span>
+        <span class="n">chaincodeQuery</span><span class="p">:</span> <span class="n">true</span>
+
+        <span class="c1"># [Optional]. will this peer be sent query proposals that do not require chaincodes, like</span>
+        <span class="c1"># queryBlock(), queryTransaction(), etc. Default: true</span>
+        <span class="n">ledgerQuery</span><span class="p">:</span> <span class="n">true</span>
+
+        <span class="c1"># [Optional]. will this peer be the target of the SDK&#39;s listener registration? All peers can</span>
+        <span class="c1"># produce events but the app typically only needs to connect to one to listen to events.</span>
+        <span class="c1"># Default: true</span>
+        <span class="n">eventSource</span><span class="p">:</span> <span class="n">true</span>
+
+      <span class="n">peer1</span><span class="o">.</span><span class="n">org1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="p">:</span>
+        <span class="n">endorsingPeer</span><span class="p">:</span> <span class="n">true</span>
+        <span class="n">chaincodeQuery</span><span class="p">:</span> <span class="n">true</span>
+        <span class="n">ledgerQuery</span><span class="p">:</span> <span class="n">true</span>
+        <span class="n">eventSource</span><span class="p">:</span> <span class="n">true</span>
+
+    <span class="c1"># [Optional]. what chaincodes are expected to exist on this channel? The application can use</span>
+    <span class="c1"># this information to validate that the target peers are in the expected state by comparing</span>
+    <span class="c1"># this list with the query results of getInstalledChaincodes() and getInstantiatedChaincodes()</span>
+    <span class="n">chaincodes</span><span class="p">:</span>
+      <span class="c1"># the format follows the &quot;cannonical name&quot; of chaincodes by fabric code</span>
+      <span class="o">-</span> <span class="n">example02</span><span class="p">:</span><span class="n">v1</span>
+      <span class="o">-</span> <span class="n">marbles</span><span class="p">:</span><span class="mf">1.0</span>
+
+<span class="c1">#</span>
+<span class="c1"># list of participating organizations in this network</span>
+<span class="c1">#</span>
+<span class="n">organizations</span><span class="p">:</span>
+  <span class="n">Org1</span><span class="p">:</span>
+    <span class="n">mspid</span><span class="p">:</span> <span class="n">Org1MSP</span>
+
+    <span class="n">peers</span><span class="p">:</span>
+      <span class="o">-</span> <span class="n">peer0</span><span class="o">.</span><span class="n">org1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+      <span class="o">-</span> <span class="n">peer1</span><span class="o">.</span><span class="n">org1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+
+    <span class="c1"># [Optional]. Certificate Authorities issue certificates for identification purposes in a Fabric based</span>
+    <span class="c1"># network. Typically certificates provisioning is done in a separate process outside of the</span>
+    <span class="c1"># runtime network. Fabric-CA is a special certificate authority that provides a REST APIs for</span>
+    <span class="c1"># dynamic certificate management (enroll, revoke, re-enroll). The following section is only for</span>
+    <span class="c1"># Fabric-CA servers.</span>
+    <span class="n">certificateAuthorities</span><span class="p">:</span>
+      <span class="o">-</span> <span class="n">ca</span><span class="o">-</span><span class="n">org1</span>
+
+    <span class="c1"># [Optional]. If the application is going to make requests that are reserved to organization</span>
+    <span class="c1"># administrators, including creating/updating channels, installing/instantiating chaincodes, it</span>
+    <span class="c1"># must have access to the admin identity represented by the private key and signing certificate.</span>
+    <span class="c1"># Both properties can be the PEM string or local path to the PEM file. Note that this is mainly for</span>
+    <span class="c1"># convenience in development mode, production systems should not expose sensitive information</span>
+    <span class="c1"># this way. The SDK should allow applications to set the org admin identity via APIs, and only use</span>
+    <span class="c1"># this route as an alternative when it exists.</span>
+    <span class="n">adminPrivateKey</span><span class="p">:</span>
+      <span class="c1">#path: src/test/fixture/sdkintegration/e2e-2Orgs/v1.3/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/6b32e59640c594cf633ad8c64b5958ef7e5ba2a205cfeefd44a9e982ce624d93_sk</span>
+      <span class="n">pem</span><span class="p">:</span> <span class="o">|</span>
+        <span class="o">-----</span><span class="n">BEGIN</span> <span class="n">PRIVATE</span> <span class="n">KEY</span><span class="o">-----</span>
+        <span class="n">MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgpANnM2zJ</span><span class="o">/</span><span class="n">oz7c31B</span>
+        <span class="n">ahODy1OSvibxUHpQ</span><span class="o">/</span><span class="mi">1</span><span class="n">xiUleYvH</span><span class="o">+</span><span class="n">hRANCAAS1d3Y0ZtaqIrifI92pNvkFlgD2rSan</span>
+        <span class="n">O</span><span class="o">/</span><span class="n">YCrqMzkJFp1OyZZEORkrNuho</span><span class="o">+</span><span class="n">iUFNKRngXvVOYEzRAC7HfWmiMyar</span><span class="o">/</span>
+        <span class="o">-----</span><span class="n">END</span> <span class="n">PRIVATE</span> <span class="n">KEY</span><span class="o">-----</span>
+
+    <span class="n">signedCert</span><span class="p">:</span>
+      <span class="n">path</span><span class="p">:</span> <span class="n">src</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">fixture</span><span class="o">/</span><span class="n">sdkintegration</span><span class="o">/</span><span class="n">e2e</span><span class="o">-</span><span class="mi">2</span><span class="n">Orgs</span><span class="o">/</span><span class="n">v1</span><span class="o">.</span><span class="mi">3</span><span class="o">/</span><span class="n">crypto</span><span class="o">-</span><span class="n">config</span><span class="o">/</span><span class="n">peerOrganizations</span><span class="o">/</span><span class="n">org1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">Admin</span><span class="nd">@org1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">msp</span><span class="o">/</span><span class="n">signcerts</span><span class="o">/</span><span class="n">Admin</span><span class="nd">@org1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">-</span><span class="n">cert</span><span class="o">.</span><span class="n">pem</span>
+      <span class="c1">#pem: |</span>
+      <span class="c1">#      -----BEGIN CERTIFICATE-----</span>
+      <span class="c1">#      MIICGjCCAcCgAwIBAgIRAPDmqtljAyXFJ06ZnQjXqbMwCgYIKoZIzj0EAwIwczEL</span>
+      <span class="c1">#      MAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG</span>
+      <span class="c1">#      cmFuY2lzY28xGTAXBgNVBAoTEG9yZzEuZXhhbXBsZS5jb20xHDAaBgNVBAMTE2Nh</span>
+      <span class="c1">#      Lm9yZzEuZXhhbXBsZS5jb20wHhcNMTcwNjIyMTIwODQyWhcNMjcwNjIwMTIwODQy</span>
+      <span class="c1">#      WjBbMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMN</span>
+      <span class="c1">#      U2FuIEZyYW5jaXNjbzEfMB0GA1UEAwwWQWRtaW5Ab3JnMS5leGFtcGxlLmNvbTBZ</span>
+      <span class="c1">#      MBMGByqGSM49AgEGCCqGSM49AwEHA0IABJve76Fj5T8Vm+FgM3p3TwcnW/npQlTL</span>
+      <span class="c1">#      P+fY0fImBODqQLTkBokx4YiKcQXQl4m1EM1VAbOhAlBiOfNRNL0W8aGjTTBLMA4G</span>
+      <span class="c1">#      A1UdDwEB/wQEAwIHgDAMBgNVHRMBAf8EAjAAMCsGA1UdIwQkMCKAIPz3drAqBWAE</span>
+      <span class="c1">#      CNC+nZdSr8WfZJULchyss2O1uVoP6mIWMAoGCCqGSM49BAMCA0gAMEUCIQDatF1P</span>
+      <span class="c1">#      L7SavLsmjbFxdeVvLnDPJuCFaAdr88oE2YuAvwIgDM4qXAcDw/AhyQblWR4F4kkU</span>
+      <span class="c1">#      NHvr441QC85U+V4UQWY=</span>
+      <span class="c1">#      -----END CERTIFICATE-----</span>
+
+  <span class="c1"># the profile will contain public information about organizations other than the one it belongs to.</span>
+  <span class="c1"># These are necessary information to make transaction lifecycles work, including MSP IDs and</span>
+  <span class="c1"># peers with a public URL to send transaction proposals. The file will not contain private</span>
+  <span class="c1"># information reserved for members of the organization, such as admin key and certificate,</span>
+  <span class="c1"># fabric-ca registrar enroll ID and secret, etc.</span>
+  <span class="n">Org2</span><span class="p">:</span>
+    <span class="n">mspid</span><span class="p">:</span> <span class="n">Org2MSP</span>
+    <span class="n">peers</span><span class="p">:</span>
+      <span class="o">-</span> <span class="n">peer0</span><span class="o">.</span><span class="n">org2</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+    <span class="n">certificateAuthorities</span><span class="p">:</span>
+      <span class="o">-</span> <span class="n">ca</span><span class="o">-</span><span class="n">org2</span>
+      <span class="o">-</span> <span class="n">ca</span><span class="o">-</span><span class="n">tls</span><span class="o">-</span><span class="n">org2</span>
+      <span class="o">-</span> <span class="n">ca</span><span class="o">-</span><span class="n">tls</span><span class="o">-</span><span class="n">invalid</span><span class="o">-</span><span class="n">certs</span><span class="o">-</span><span class="n">org2</span>
+
+<span class="c1">#</span>
+<span class="c1"># List of orderers to send transaction and channel create/update requests to. For the time</span>
+<span class="c1"># being only one orderer is needed. If more than one is defined, which one get used by the</span>
+<span class="c1"># SDK is implementation specific. Consult each SDK&#39;s documentation for its handling of orderers.</span>
+<span class="c1">#</span>
+<span class="n">orderers</span><span class="p">:</span>
+  <span class="n">orderer</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="p">:</span>
+    <span class="n">url</span><span class="p">:</span> <span class="n">grpc</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">7050</span>
+
+    <span class="c1"># these are standard properties defined by the gRPC library</span>
+    <span class="c1"># they will be passed in as-is to gRPC client constructor</span>
+    <span class="n">grpcOptions</span><span class="p">:</span>
+      <span class="c1">#      ssl-target-name-override: orderer.example.com</span>
+      <span class="c1">#      sslProvider: openSSL</span>
+      <span class="c1">#      negotiationType: TLS</span>
+      <span class="c1">#      hostnameOverride: orderer.example.com</span>
+      <span class="n">grpc</span><span class="o">-</span><span class="nb">max</span><span class="o">-</span><span class="n">send</span><span class="o">-</span><span class="n">message</span><span class="o">-</span><span class="n">length</span><span class="p">:</span> <span class="mi">15</span>
+      <span class="n">grpc</span><span class="o">.</span><span class="n">keepalive_time_ms</span><span class="p">:</span> <span class="mi">360000</span>
+      <span class="n">grpc</span><span class="o">.</span><span class="n">keepalive_timeout_ms</span><span class="p">:</span> <span class="mi">180000</span>
+      <span class="n">grpc</span><span class="o">.</span><span class="n">keepalive_without_calls</span><span class="p">:</span> <span class="n">true</span>
+
+    <span class="c1"># src/test/fixture/sdkintegration/e2e-2Orgs/v1.3/crypto-config/ordererOrganizations/example.com/tlsca</span>
+<span class="c1">#    tlsCACerts:</span>
+<span class="c1">#      pem: |</span>
+<span class="c1">#        -----BEGIN CERTIFICATE-----</span>
+<span class="c1">#        MIICNjCCAdygAwIBAgIRALBAjQY2Wfpwz6/bqKvkeAowCgYIKoZIzj0EAwIwbDEL</span>
+<span class="c1">#        MAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG</span>
+<span class="c1">#        cmFuY2lzY28xFDASBgNVBAoTC2V4YW1wbGUuY29tMRowGAYDVQQDExF0bHNjYS5l</span>
+<span class="c1">#        eGFtcGxlLmNvbTAeFw0xODAyMjUxMjQzMjlaFw0yODAyMjMxMjQzMjlaMGwxCzAJ</span>
+<span class="c1">#        BgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4gRnJh</span>
+<span class="c1">#        bmNpc2NvMRQwEgYDVQQKEwtleGFtcGxlLmNvbTEaMBgGA1UEAxMRdGxzY2EuZXhh</span>
+<span class="c1">#        bXBsZS5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAR/LJmaZdt0jZMgTfsQ</span>
+<span class="c1">#        vLkJTCDG4m8lNdtQI5VoCpKKSxMlFKUPU54ofttW2Vn76hm7/eK+Lq09LRgJheo1</span>
+<span class="c1">#        6y47o18wXTAOBgNVHQ8BAf8EBAMCAaYwDwYDVR0lBAgwBgYEVR0lADAPBgNVHRMB</span>
+<span class="c1">#        Af8EBTADAQH/MCkGA1UdDgQiBCDadvMVYJ3hG7FgDW7vlVW20s0L8mVUn/ggI2l0</span>
+<span class="c1">#        1ntSRTAKBggqhkjOPQQDAgNIADBFAiEAvX5+F+QnNPKX/Q/kFmkzOdRovEtgIylG</span>
+<span class="c1">#        EArBHBpaqpkCIDNzXoW//ROIslbKToWexg/kwAH1HMhkm9doTyaDxc4k</span>
+<span class="c1">#        -----END CERTIFICATE-----</span>
+
+<span class="c1">#</span>
+<span class="c1"># List of peers to send various requests to, including endorsement, query</span>
+<span class="c1"># and event listener registration.</span>
+<span class="c1">#</span>
+<span class="n">peers</span><span class="p">:</span>
+  <span class="n">peer0</span><span class="o">.</span><span class="n">org1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="p">:</span>
+    <span class="c1"># this URL is used to send endorsement and query requests</span>
+    <span class="n">url</span><span class="p">:</span> <span class="n">grpc</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">7051</span>
+
+
+
+    <span class="n">grpcOptions</span><span class="p">:</span>
+      <span class="n">grpc</span><span class="o">.</span><span class="n">http2</span><span class="o">.</span><span class="n">keepalive_time</span><span class="p">:</span> <span class="mi">15</span>
+  <span class="c1">#      ssl-target-name-override: peer0.org1.example.com</span>
+  <span class="c1">#      negotiationType: TLS</span>
+  <span class="c1">#      sslProvider: openSSL</span>
+  <span class="c1">#      hostnameOverride: peer0.org1.example.com</span>
+  <span class="c1">#      # TODO: The following causes a NoSuchMethodException to be thrown when sending proposals to the peer...</span>
+  <span class="c1">#      # grpc.NettyChannelBuilderOption.maxInboundMessageSize: 9000000</span>
+  <span class="c1">#</span>
+  <span class="c1">#    tlsCACerts:</span>
+  <span class="c1">#      pem: |</span>
+  <span class="c1">#          -----BEGIN CERTIFICATE-----</span>
+  <span class="c1">#          MIICZjCCAg2gAwIBAgIQT5LDpIbEhZ93KRfuBzhsPDAKBggqhkjOPQQDAjB2MQsw</span>
+  <span class="c1">#          CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy</span>
+  <span class="c1">#          YW5jaXNjbzEZMBcGA1UEChMQb3JnMS5leGFtcGxlLmNvbTEfMB0GA1UEAxMWdGxz</span>
+  <span class="c1">#          Y2Eub3JnMS5leGFtcGxlLmNvbTAeFw0xODAyMjUxMjQzMjlaFw0yODAyMjMxMjQz</span>
+  <span class="c1">#          MjlaMFsxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQH</span>
+  <span class="c1">#          Ew1TYW4gRnJhbmNpc2NvMR8wHQYDVQQDExZwZWVyMC5vcmcxLmV4YW1wbGUuY29t</span>
+  <span class="c1">#          MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE+br01bZtM+KZswLnXiZK0f3bfSqt</span>
+  <span class="c1">#          8+NnJc71NGx+VsUeU38jNl282Uo7A0PNKMQpr10BXomDl3jsTMK8E0aT16OBlzCB</span>
+  <span class="c1">#          lDAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMC</span>
+  <span class="c1">#          MAwGA1UdEwEB/wQCMAAwKwYDVR0jBCQwIoAgEkNmPHedLauZvdBejAlBvo4xhOWp</span>
+  <span class="c1">#          2+VxGreyMCZtcicwKAYDVR0RBCEwH4IWcGVlcjAub3JnMS5leGFtcGxlLmNvbYIF</span>
+  <span class="c1">#          cGVlcjAwCgYIKoZIzj0EAwIDRwAwRAIgdwC/WQ6wRHlTygTJJ8SiAoMrbDpTePhx</span>
+  <span class="c1">#          Z2GEIu5RtMwCIBuJ8LTJnFZNivBbTFU/65lhCLpVj5R3j5KuaJ+dovF5</span>
+  <span class="c1">#          -----END CERTIFICATE-----</span>
+
+
+  <span class="n">peer1</span><span class="o">.</span><span class="n">org1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="p">:</span>
+    <span class="n">url</span><span class="p">:</span> <span class="n">grpc</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">7056</span>
+
+    <span class="n">grpcOptions</span><span class="p">:</span>
+      <span class="n">grpc</span><span class="o">.</span><span class="n">http2</span><span class="o">.</span><span class="n">keepalive_time</span><span class="p">:</span> <span class="mi">15</span>
+    <span class="c1">#      ssl-target-name-override: peer0.org1.example.com</span>
+    <span class="c1">#      negotiationType: TLS</span>
+    <span class="c1">#      sslProvider: openSSL</span>
+    <span class="c1">#      hostnameOverride: peer1.org1.example.com</span>
+
+    <span class="n">tlsCACerts</span><span class="p">:</span>
+      <span class="n">path</span><span class="p">:</span> <span class="n">src</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">fixture</span><span class="o">/</span><span class="n">sdkintegration</span><span class="o">/</span><span class="n">e2e</span><span class="o">-</span><span class="mi">2</span><span class="n">Orgs</span><span class="o">/</span><span class="n">v1</span><span class="o">.</span><span class="mi">3</span><span class="o">/</span><span class="n">crypto</span><span class="o">-</span><span class="n">config</span><span class="o">/</span><span class="n">peerOrganizations</span><span class="o">/</span><span class="n">org1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">peers</span><span class="o">/</span><span class="n">peer1</span><span class="o">.</span><span class="n">org1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">tls</span><span class="o">/</span><span class="n">server</span><span class="o">.</span><span class="n">crt</span>
+
+
+
+  <span class="n">peer0</span><span class="o">.</span><span class="n">org2</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="p">:</span>
+    <span class="n">url</span><span class="p">:</span> <span class="n">grpc</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8051</span>
+
+<span class="c1">#    grpcOptions:</span>
+<span class="c1">#      ssl-target-name-override: peer0.org2.example.com</span>
+<span class="c1">#      negotiationType: TLS</span>
+<span class="c1">#      grpc.NettyChannelBuilderOption.maxInboundMessageSize: 9000000</span>
+<span class="c1">#      sslProvider: openSSL</span>
+<span class="c1">#      hostnameOverride: peer0.org2.example.com</span>
+<span class="c1">#</span>
+<span class="c1">#    tlsCACerts:</span>
+<span class="c1">#      path: src/test/fixture/sdkintegration/e2e-2Orgs/v1.3/crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/server.crt</span>
+
+<span class="c1">#</span>
+<span class="c1"># Fabric-CA is a special kind of Certificate Authority provided by Hyperledger Fabric which allows</span>
+<span class="c1"># certificate management to be done via REST APIs. Application may choose to use a standard</span>
+<span class="c1"># Certificate Authority instead of Fabric-CA, in which case this section would not be specified.</span>
+<span class="c1">#</span>
+<span class="n">certificateAuthorities</span><span class="p">:</span>
+  <span class="n">ca</span><span class="o">-</span><span class="n">org1</span><span class="p">:</span>
+    <span class="n">url</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">7054</span>
+    <span class="c1"># the properties specified under this object are passed to the &#39;http&#39; client verbatim when</span>
+    <span class="c1"># making the request to the Fabric-CA server</span>
+    <span class="c1">#    httpOptions:</span>
+    <span class="c1">#      verify: true</span>
+
+    <span class="c1"># Fabric-CA supports dynamic user enrollment via REST APIs. A &quot;root&quot; user, a.k.a registrar, is</span>
+    <span class="c1"># needed to enroll and invoke new users.</span>
+    <span class="n">registrar</span><span class="p">:</span> <span class="c1">#single entitiy</span>
+      <span class="n">enrollId</span><span class="p">:</span> <span class="n">admin</span>
+      <span class="n">enrollSecret</span><span class="p">:</span> <span class="n">adminpw</span>
+    <span class="c1"># [Optional] The optional name of the CA.</span>
+    <span class="n">caName</span><span class="p">:</span> <span class="n">ca0</span>
+  <span class="n">ca</span><span class="o">-</span><span class="n">org2</span><span class="p">:</span>
+    <span class="n">url</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8054</span>
+      <span class="c1"># the properties specified under this object are passed to the &#39;http&#39; client verbatim when</span>
+    <span class="c1"># making the request to the Fabric-CA server</span>
+    <span class="n">httpOptions</span><span class="p">:</span>
+      <span class="n">verify</span><span class="p">:</span> <span class="n">true</span>
+    <span class="n">tlsCACerts</span><span class="p">:</span>
+      <span class="n">path</span><span class="p">:</span> <span class="n">peerOrganizations</span><span class="o">/</span><span class="n">org1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ca</span><span class="o">/</span><span class="n">org1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">-</span><span class="n">cert</span><span class="o">.</span><span class="n">pem</span>
+
+    <span class="c1"># Fabric-CA supports dynamic user enrollment via REST APIs. A &quot;root&quot; user, a.k.a registrar, is</span>
+    <span class="c1"># needed to enroll and invoke new users.</span>
+    <span class="n">registrar</span><span class="p">:</span> <span class="c1"># as an array.</span>
+      <span class="o">-</span>  <span class="n">enrollId</span><span class="p">:</span> <span class="n">admin</span>
+         <span class="n">enrollSecret</span><span class="p">:</span> <span class="n">adminpw</span>
+           <span class="c1"># [Optional] The optional name of the CA.</span>
+        <span class="c1">## caName: ca0 no ca name!</span>
+
+  <span class="n">ca</span><span class="o">-</span><span class="n">tls</span><span class="o">-</span><span class="n">org2</span><span class="p">:</span>
+    <span class="n">url</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">9054</span>
+      <span class="c1"># the properties specified under this object are passed to the &#39;http&#39; client verbatim when</span>
+    <span class="c1"># making the request to the Fabric-CA server</span>
+    <span class="n">httpOptions</span><span class="p">:</span>
+      <span class="n">verify</span><span class="p">:</span> <span class="n">false</span> <span class="c1">#must be no for testing env.</span>
+    <span class="c1"># Fabric-CA supports dynamic user enrollment via REST APIs. A &quot;root&quot; user, a.k.a registrar, is</span>
+    <span class="c1"># needed to enroll and invoke new users.</span>
+    <span class="n">registrar</span><span class="p">:</span> <span class="c1"># as an array.</span>
+      <span class="o">-</span>  <span class="n">enrollId</span><span class="p">:</span> <span class="n">admin</span>
+         <span class="n">enrollSecret</span><span class="p">:</span> <span class="n">adminpw</span>
+    <span class="n">tlsCACerts</span><span class="p">:</span>
+      <span class="c1"># Comma-Separated list of paths</span>
+      <span class="n">path</span><span class="p">:</span> <span class="n">src</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">fixture</span><span class="o">/</span><span class="n">sdkintegration</span><span class="o">/</span><span class="n">e2e</span><span class="o">-</span><span class="mi">2</span><span class="n">Orgs</span><span class="o">/</span><span class="n">v1</span><span class="o">.</span><span class="mi">3</span><span class="o">/</span><span class="n">crypto</span><span class="o">-</span><span class="n">config</span><span class="o">/</span><span class="n">peerOrganizations</span><span class="o">/</span><span class="n">org2</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ca</span><span class="o">/</span><span class="n">ca</span><span class="o">.</span><span class="n">org2</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">-</span><span class="n">cert</span><span class="o">.</span><span class="n">pem</span>
+
+      <span class="c1"># Client key and cert for TLS mutual auth with Fabric CA. If the target Fabric CA server</span>
+      <span class="c1"># does not have TLS mutual auth turned on, then this section is not needed</span>
+      <span class="n">client</span><span class="p">:</span>
+        <span class="n">keyfile</span><span class="p">:</span> <span class="n">src</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">fixture</span><span class="o">/</span><span class="n">sdkintegration</span><span class="o">/</span><span class="n">e2e</span><span class="o">-</span><span class="mi">2</span><span class="n">Orgs</span><span class="o">/</span><span class="n">v1</span><span class="o">.</span><span class="mi">3</span><span class="o">/</span><span class="n">crypto</span><span class="o">-</span><span class="n">config</span><span class="o">/</span><span class="n">peerOrganizations</span><span class="o">/</span><span class="n">org2</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">Admin</span><span class="nd">@org2</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">msp</span><span class="o">/</span><span class="n">keystore</span><span class="o">/</span><span class="mi">5</span><span class="n">fcbc56face045c33ad213f276293bbe3c54c2e69936045af5c9c46f38b4eddc_sk</span>
+        <span class="n">certfile</span><span class="p">:</span> <span class="n">src</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">fixture</span><span class="o">/</span><span class="n">sdkintegration</span><span class="o">/</span><span class="n">e2e</span><span class="o">-</span><span class="mi">2</span><span class="n">Orgs</span><span class="o">/</span><span class="n">v1</span><span class="o">.</span><span class="mi">3</span><span class="o">/</span><span class="n">crypto</span><span class="o">-</span><span class="n">config</span><span class="o">/</span><span class="n">peerOrganizations</span><span class="o">/</span><span class="n">org2</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">Admin</span><span class="nd">@org2</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">msp</span><span class="o">/</span><span class="n">signcerts</span><span class="o">/</span><span class="n">Admin</span><span class="nd">@org2</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">-</span><span class="n">cert</span><span class="o">.</span><span class="n">pem</span>
+
+  <span class="n">ca</span><span class="o">-</span><span class="n">tls</span><span class="o">-</span><span class="n">invalid</span><span class="o">-</span><span class="n">certs</span><span class="o">-</span><span class="n">org2</span><span class="p">:</span>
+    <span class="n">url</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">9054</span>
+      <span class="c1"># the properties specified under this object are passed to the &#39;http&#39; client verbatim when</span>
+    <span class="c1"># making the request to the Fabric-CA server</span>
+    <span class="n">httpOptions</span><span class="p">:</span>
+      <span class="n">verify</span><span class="p">:</span> <span class="n">false</span> <span class="c1">#must be no for testing env.</span>
+    <span class="c1"># Fabric-CA supports dynamic user enrollment via REST APIs. A &quot;root&quot; user, a.k.a registrar, is</span>
+    <span class="c1"># needed to enroll and invoke new users.</span>
+    <span class="n">registrar</span><span class="p">:</span> <span class="c1"># as an array.</span>
+      <span class="o">-</span>  <span class="n">enrollId</span><span class="p">:</span> <span class="n">admin</span>
+         <span class="n">enrollSecret</span><span class="p">:</span> <span class="n">adminpw</span>
+    <span class="n">tlsCACerts</span><span class="p">:</span>
+      <span class="c1"># Comma-Separated list of paths</span>
+      <span class="n">path</span><span class="p">:</span> <span class="n">src</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">fixture</span><span class="o">/</span><span class="n">sdkintegration</span><span class="o">/</span><span class="n">e2e</span><span class="o">-</span><span class="mi">2</span><span class="n">Orgs</span><span class="o">/</span><span class="n">v1</span><span class="o">.</span><span class="mi">3</span><span class="o">/</span><span class="n">crypto</span><span class="o">-</span><span class="n">config</span><span class="o">/</span><span class="n">peerOrganizations</span><span class="o">/</span><span class="n">org2</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ca</span><span class="o">/</span><span class="n">ca</span><span class="o">.</span><span class="n">org2</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">-</span><span class="n">cert</span><span class="o">.</span><span class="n">pem</span>
+
+      <span class="c1"># Client key and cert for TLS mutual auth with Fabric CA. If the target Fabric CA server</span>
+      <span class="c1"># does not have TLS mutual auth turned on, then this section is not needed</span>
+      <span class="n">client</span><span class="p">:</span>
+        <span class="n">keyfile</span><span class="p">:</span> <span class="n">src</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">fixture</span><span class="o">/</span><span class="n">sdkintegration</span><span class="o">/</span><span class="n">e2e</span><span class="o">-</span><span class="mi">2</span><span class="n">Orgs</span><span class="o">/</span><span class="n">v1</span><span class="o">.</span><span class="mi">3</span><span class="o">/</span><span class="n">crypto</span><span class="o">-</span><span class="n">config</span><span class="o">/</span><span class="n">peerOrganizations</span><span class="o">/</span><span class="n">org1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">Admin</span><span class="nd">@org1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">msp</span><span class="o">/</span><span class="n">keystore</span><span class="o">/</span><span class="mi">581</span><span class="n">fa072e48dc2a516f664df94ea687447c071f89fc0b783b147956a08929dcc_sk</span>
+        <span class="n">certfile</span><span class="p">:</span> <span class="n">src</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">fixture</span><span class="o">/</span><span class="n">sdkintegration</span><span class="o">/</span><span class="n">e2e</span><span class="o">-</span><span class="mi">2</span><span class="n">Orgs</span><span class="o">/</span><span class="n">v1</span><span class="o">.</span><span class="mi">3</span><span class="o">/</span><span class="n">crypto</span><span class="o">-</span><span class="n">config</span><span class="o">/</span><span class="n">peerOrganizations</span><span class="o">/</span><span class="n">org1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">Admin</span><span class="nd">@org1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">msp</span><span class="o">/</span><span class="n">signcerts</span><span class="o">/</span><span class="n">Admin</span><span class="nd">@org1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">-</span><span class="n">cert</span><span class="o">.</span><span class="n">pem</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2021, asiainfo-guoyuan.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
