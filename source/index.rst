@@ -30,6 +30,17 @@ ASIAINFO-FABRIC 提供支持链接HYPERLEDGER-FABRIC网络的SDK工具
    docs/api/list/queryOrg.md
    docs/api/upgradeChain.md
 
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: 操作手册
+
+   docs/operation/shangping.md
+   docs/operation/shanghu.md
+   docs/operation/pici.md
+   docs/operation/peizhi.md
+   docs/operation/suyuan.md
+
 
 
 
