@@ -103,6 +103,19 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../api/introduction.html">ASIAINFO-FABRIC-API 介绍</a></li>
 </ul>
+<p class="caption"><span class="caption-text">api</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/list/ledger.html">浏览账本信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/list/ordererInfo.html">获取联盟orderer节点信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/list/createChain.html">创建链码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/list/createConsortium.html">创建联盟</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/list/createOrg.html">创建组织</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/list/createOrgUser.html">创建组织用户</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/list/installChain.html">安装链码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/list/instantiateChain.html">实例化链码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/list/queryChannel.html">查询通道详情</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/list/queryOrg.html">获取组织详情</a></li>
+</ul>
 
             
           
@@ -177,13 +190,36 @@
 </div>
 <div class="section" id="id2">
 <h2>配置文件<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>提供两种文件配置方式,格式如下：</p>
 <ul class="simple">
-<li><a class="reference external" href="config/connection-json.md?_blank">json</a></li>
-<li><a class="reference external" href="config/connection-yaml.md?_blank">yaml</a></li>
+<li><a class="reference internal" href="config/connection-json.html"><span class="doc">JSON</span></a></li>
+<li><a class="reference internal" href="config/connection-yaml.html"><span class="doc">YAML</span></a></li>
 </ul>
+<p>文件组成主要是机构、节点、用户的MSP，如网络使用到TLS，需要配置TLS部分</p>
 </div>
 <div class="section" id="id3">
 <h2>使用<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>依赖引入</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="n">hyperledger</span><span class="o">.</span><span class="n">fabric</span><span class="o">.</span><span class="n">boot</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">hyperledger</span><span class="o">-</span><span class="n">fabric</span><span class="o">-</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>在 <code class="docutils literal notranslate"><span class="pre">application.properties</span></code> 指定 网络配置文件路径 spring.fabric.path</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@Autowired</span>
+<span class="n">private</span> <span class="n">FabricTemplate</span> <span class="n">fabricTemplate</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>执行交易</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fabricTemplate</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">body</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>执行查询</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fabricTemplate</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">body</span><span class="p">);</span>
+</pre></div>
+</div>
 </div>
 </div>
 

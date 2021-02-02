@@ -17,8 +17,8 @@
 依赖引入
 ```
 <dependency>
-    <groupId>com.aliyun</groupId>
-    <artifactId>baas20181221</artifactId>
+    <groupId>com.hyperledger.fabric.boot</groupId>
+    <artifactId>hyperledger-fabric-spring-boot-starter</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```
