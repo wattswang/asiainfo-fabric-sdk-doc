@@ -13,3 +13,28 @@
 
 
 ## 使用
+
+依赖引入
+```
+<dependency>
+    <groupId>com.aliyun</groupId>
+    <artifactId>baas20181221</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+在 `application.properties` 指定 网络配置文件路径 spring.fabric.path
+
+```
+@Autowired
+private FabricTemplate fabricTemplate;
+```
+执行交易
+```
+fabricTemplate.submit(method, body);
+```
+
+执行查询
+```
+fabricTemplate.query(method, body);
+```
